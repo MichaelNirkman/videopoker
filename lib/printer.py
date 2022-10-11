@@ -24,7 +24,7 @@ def print_hand(hand, first_draw=False):
         print("")
 
 def print_status(deposit, bet):
-    print(f"\nCash: {c.WARNING}{deposit}{c.ENDC}, bet: {c.OKBLUE}{bet}{c.ENDC}\n")
+    print(f"Tokens: {c.WARNING}{deposit}{c.ENDC}, bet: {c.OKBLUE}{bet}{c.ENDC}\n")
 
 def prompt_keeps():
     print("\nKeep any cards?")
@@ -42,7 +42,7 @@ def prompt_continue(deposit):
     return running
 
 def prompt_deposit():
-    deposit = prompt_for_int("Input cash deposit (50): ", 50)
+    deposit = prompt_for_int("Input amount of tokens (50): ", 50)
     bet = prompt_for_int("Input Bet (5): ", 5)
     return deposit, bet
 
@@ -61,7 +61,7 @@ def print_winning_hand(msg):
     print(f"{c.OKGREEN}{msg}{c.ENDC}")
 
 def print_wins(prize):
-    print(f"You win {c.WARNING}{prize}{c.ENDC}")
+    print(f"You win {c.WARNING}{prize}{c.ENDC} tokens")
 
 def clear_screen():
     if platform.system() == 'Windows':
