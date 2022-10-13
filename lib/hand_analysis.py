@@ -3,9 +3,9 @@ import lib.printer as printer
 
 def analyze_hand(hand, deposit, bet):
     print("")
-    hand, is_straight, is_royal = find_straight(hand)
-    hand, is_flush = find_flush(hand)
-    hand, is_multiple, multiple_type = find_multiples(hand)
+    is_straight, is_royal = find_straight(hand)
+    is_flush = find_flush(hand)
+    is_multiple, multiple_type = find_multiples(hand)
     prize = 0
     if is_royal and is_flush:
         printer.print_winning_hand("Royal flush!!!")
@@ -64,7 +64,7 @@ def find_straight(hand):
     if is_straight and sorted_hand[-1].rank == 12:
         is_royal = True
 
-    return hand, is_straight, is_royal
+    return is_straight, is_royal
 
 def find_flush(hand):
     flush = False
@@ -73,7 +73,7 @@ def find_flush(hand):
     if len(suitcount.values()) == 1:
         flush = True
     
-    return hand, flush
+    return flush
 
 def find_multiples(hand):
     is_multiple = True
@@ -101,4 +101,4 @@ def find_multiples(hand):
     else:
         is_multiple = False
 
-    return hand, is_multiple, multiple_type
+    return is_multiple, multiple_type
